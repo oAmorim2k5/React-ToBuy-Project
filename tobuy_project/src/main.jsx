@@ -8,18 +8,6 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import Home from "./routes/Home";
 import Contact from './routes/Contact';
 import ErrorPage from "./routes/ErrorPage";
-import ContactDetails from "./routes/ContactDetails";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Home />
-//   },
-//   {
-//     path: "contact",
-//     element: <Contact />
-//   }
-// ])
 
 const router = createBrowserRouter([
   {
@@ -35,14 +23,6 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />
       },
-      {
-        path: "/contact/:id",
-        element: <ContactDetails />
-      },
-      {
-        path: "oldcontact",
-        element: <Navigate to="/contact" />
-      }
     ]
   },
   
