@@ -56,7 +56,7 @@ const Navbar = () => {
             Login
           </Link>
           <Link className={styles.link} to="/register">
-            Cadastro
+            Cadastre-se
           </Link>
         </div>
       )}
