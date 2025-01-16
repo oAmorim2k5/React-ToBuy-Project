@@ -16,7 +16,7 @@ const Register = () => {
   return (
     <div className={styles.Container}>
         <form onSubmit={handleSubmit}>
-          <h1>Register</h1>
+          <h1>Criar conta</h1>
             <div className={styles.inputField}>
                 <input type="email" className={styles.Email} placeholder='Digite seu Email Aqui' onChange={(e) => setUsername(e.target.value)}/>
                 <FaUser className={styles.Icon}/>

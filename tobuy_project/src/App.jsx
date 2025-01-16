@@ -8,7 +8,9 @@ function App() {
       <div className="App">
         <Navbar />
         <Outlet />
-        <p>Footer</p>
+        <div className='footer'>
+        <p>Victor Amorim © 2025 ToBüY. Todos os direitos reservados.</p>
+        </div>
       </div>
   )
 }
