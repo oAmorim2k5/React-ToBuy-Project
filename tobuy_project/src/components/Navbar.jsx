@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "./navbar.module.css";
-import imgIcon from "../img/useIcon.png";
+import {LuCircleUserRound} from "react-icons/lu";
 
 const test = false; // Fazer verificação se o usuário está logado ou não
 
@@ -30,7 +30,7 @@ const Navbar = () => {
               aria-expanded={isMenuOpen}
               aria-label="Abrir menu do usuário"
             >
-              <img src={imgIcon} className={styles.img} alt="Ícone do Usuário" />
+              <LuCircleUserRound className={styles.Icon}/>
             </button>
           </div>
           <div

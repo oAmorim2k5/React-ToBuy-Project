@@ -7,8 +7,9 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 
 import Home from "./routes/Home";
 import Contact from './routes/Contact';
-import Login from "./routes/Login";
-import Register from "./routes/Register";
+import Login from "./routes/Login/Login";
+import Register from "./routes/Register/Register";
+import ForgetPassword from "./routes/Login/ForgetPassword";
 import ErrorPage from "./routes/ErrorPage";
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />
+      },
+      {
+        path: "forgetpassword",
+        element: <ForgetPassword />
       }
     ]
   },

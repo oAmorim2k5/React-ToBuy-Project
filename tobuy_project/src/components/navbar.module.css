@@ -123,3 +123,53 @@
 .logoutButton:hover {
   background-color: #e32e2e;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .link {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .links {
+    font-size: 0.8rem;
+    gap: 8px;
+  }
+
+  .userIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .img {
+    width: 20px;
+    height: 20px;
+  }
+}
