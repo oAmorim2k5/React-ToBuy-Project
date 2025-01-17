@@ -5,7 +5,7 @@
   left: 0;
   justify-content: space-between;
   align-items: center;
-  background-color: #ff3b3b;
+  background-color: #323232;
   color: white;
   width: 100%;
   padding: 10px 20px;
@@ -78,10 +78,10 @@
   position: absolute;
   top: 55px;
   right: -1000px; 
-  background-color: white;
+  background-color: #343434;
   color: #ffffff;
   border-radius: 3px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 5px 20px 10px rgba(0, 0, 0, 0.5);
   padding: 10px;
   width: 200px;
   z-index: 1000;
@@ -112,7 +112,7 @@
 .logoutButton {
   width: 100%;
   padding: 8px 10px;
-  background-color: #ff3b3b;
+  background-color: #242424;
   color: white;
   border: none;
   border-radius: 5px;
@@ -121,7 +121,12 @@
 }
 
 .logoutButton:hover {
-  background-color: #e32e2e;
+  background-color: #282828;
+}
+
+.logoutButton:active {
+  outline: none;
+  width: 98%;
 }
 
 /* Responsividade */

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./navbar.module.css";
 import {LuCircleUserRound} from "react-icons/lu";
 
-const test = false; // Fazer verificação se o usuário está logado ou não
+const test = true; // Fazer verificação se o usuário está logado ou não
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,10 +53,7 @@ const Navbar = () => {
             Contato
           </Link>
           <Link className={styles.link} to="/login">
-            Login
-          </Link>
-          <Link className={styles.link} to="/register">
-            Cadastre-se
+            Login/Registro
           </Link>
         </div>
       )}

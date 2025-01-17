@@ -99,7 +99,7 @@ body {
 }
 
 .Container button {
-    width: 50%;
+    width: 150px;
     height: 40px;
     background-color: #242424;
     outline: none;
@@ -116,10 +116,13 @@ body {
 .Container button:hover{
     background-color: #303030;
 }
+
+.Container button:active {
+    width: 145px;
+    height: 37px;
+}
 .Container .signupLink {
     font-size: 15px;
     text-align: center;
     margin-top: 50px
 }
-
-
