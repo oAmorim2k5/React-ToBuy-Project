@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const Login = () => {
 
-  const [username, setUsername] = useState("");
+  const [useremail, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
@@ -16,13 +16,21 @@ const Login = () => {
   return (
     <div className={styles.Container}>
         <form onSubmit={handleSubmit}>
-          <h1>Login</h1>
+          <h1>Entrar</h1>
             <div className={styles.inputField}>
-                <input type="email" className={styles.Email} placeholder='Digite seu Email Aqui!' onChange={(e) => setUsername(e.target.value)}/>
+                <input 
+                  type="email" 
+                  className={styles.Email} 
+                  placeholder='Digite seu Email Aqui!' 
+                  onChange={(e) => setEmail(e.target.value)}/>
                 <FaUser className={styles.Icon}/>
             </div>
             <div className={styles.inputField}>            
-                <input type="senha" className={styles.Password} placeholder='Digite sua Senha Aqui!' onChange={(e) => setPassword(e.target.value)}/>
+                <input 
+                  type="senha" 
+                  className={styles.Password} 
+                  placeholder='Digite sua Senha Aqui!' 
+                  onChange={(e) => setPassword(e.target.value)}/>
                 <FaLock className={styles.Icon}/> 
             </div>
             <div className={styles.recallForget}>
@@ -35,7 +43,7 @@ const Login = () => {
             <button>Entrar</button>
             <div className={styles.signupLink}>
               <p>
-                Não tem uma conta ? <Link to="/register">Registre-se</Link>
+                Não tem uma conta ? <Link to="/register">Registrar-se</Link>
               </p>
             </div>
         </form>

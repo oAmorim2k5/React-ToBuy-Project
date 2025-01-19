@@ -30,8 +30,8 @@
 
 .image {
     flex: 1;
-    max-width: 80%; 
-    padding: 0 10px;
+    max-width: 51.6%; 
+    padding: 0 70px;
     }
     
 .image img {
@@ -49,6 +49,7 @@
     font-size: 15px;
     outline: none;
     border: none;
+    transition: color 0.3s ease
 }
 
 .button:hover {

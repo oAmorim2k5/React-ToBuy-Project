@@ -6,22 +6,22 @@
 }
 
 .Container {
-    width: 400px;
+    width: 100%;
+    height: 100%;
     background-color: #323232;
     border-radius: 6px; 
+    margin-top: 40px;
     padding: 40px;
-    margin-top: 50px;
     box-shadow: 1px 5px 20px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    align-items: right;
 }
 
 .Container h1{
     font-size: 3rem; 
     color: #fff; 
     text-shadow: -5px 4.5px 5px rgba(0, 0, 0, 0.5);
-    margin: 0; 
+    margin-bottom: 20xp; 
     text-align: left; 
 }
 
@@ -30,22 +30,22 @@
 }
 
 .Container .inputField {
+    display: flex;
+    align-content: space-between;
     position: relative;
-    width: 100%;
-    height: 40px;
     margin: 30px auto;
 }
 
 .inputField input {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    outline: none;
-    border: 1px solid #323232;
-    border-radius: 10px;
+    width: 300px;
+    height: 40px;
     font-size: 16px;
+    background-color: white;
     box-shadow: -5px 5px 2px 2px rgba(0, 0, 0, 0.3);
     color: black;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #323232;
     padding: 20px 15px;
     transition: color 0.3s ease
 }
@@ -55,6 +55,30 @@
     cursor:text;
 }
 
+.Container .descText {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: -5px 5px 2px 2px rgba(0, 0, 0, 0.192);
+    color: black;
+    border: 1px solid #323232;
+    border-radius: 10px;
+    padding: 20px 15px;
+    line-height: 1.5;
+    resize: none; 
+    font-family: "Quicksand", sans-serif; 
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.Container .descText:active {
+    background-color: #ebebeb;
+}
+
+.Container .descText:hover {
+    background-color: rgb(223, 223, 223);
+}
+
 .inputField .Icon {
     position: absolute;
     right: 25px;
@@ -62,34 +86,6 @@
     transform: translateY(-50%);
     font-size: 18px;
     color: #242424;
-}
-
-.Container .recallForget {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11.5px;
-    margin: -15px 0 15px;
-}
-
-.recallForget label {
-    color: white;
-}
-
-.recallForget input {
-    margin-right: 5px;
-}
-
-.recallForget label:hover, input:hover {
-    cursor: pointer;
-}
-
-.recallForget a .signupLink p a{
-    color: white;
-    text-decoration: none;
-}
-
-.recallForget a:hover, .signupLink p a:hover {
-    text-decoration: underline;
 }
 
 .Container button {
@@ -105,6 +101,7 @@
     font-weight: 600;
     text-shadow: none;
     margin-right: 50%;
+    margin-top: 20px;
     transition: color 0.3s ease;
 }
 
@@ -116,8 +113,7 @@
     width: 145px;
     height: 37px;
 }
-.Container .signupLink {
-    font-size: 15px;
-    text-align: center;
-    margin-top: 50px
+
+.charCount{
+    text-align: right;
 }

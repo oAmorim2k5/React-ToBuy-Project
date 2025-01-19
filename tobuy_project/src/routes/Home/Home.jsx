@@ -1,5 +1,5 @@
 import styles from './home.module.css'
-import homeIMG from '../../img/homeImg.png'
+import homeIMG from '../../assets/homeImg.png'
 
 const Home = () => {
   return (

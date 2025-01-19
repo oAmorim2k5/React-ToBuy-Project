@@ -18,21 +18,33 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <h1>Criar conta</h1>
             <div className={styles.inputField}>
-                <input type="email" className={styles.Email} placeholder='Digite seu Email Aqui' onChange={(e) => setUsername(e.target.value)}/>
+                <input 
+                  type="email" 
+                  className={styles.Email} 
+                  placeholder='Digite seu Email Aqui' 
+                  onChange={(e) => setUsername(e.target.value)}/>
                 <FaUser className={styles.Icon}/>
             </div>
             <div className={styles.inputField}>            
-                <input type="senha" className={styles.Password} placeholder='Digite sua Senha Aqui' onChange={(e) => setPassword(e.target.value)}/>
+                <input 
+                  type="senha" 
+                  className={styles.Password} 
+                  placeholder='Digite sua Senha Aqui' 
+                  onChange={(e) => setPassword(e.target.value)}/>
                 <FaLock className={styles.Icon}/> 
             </div>
             <div className={styles.inputField}>            
-                <input type="senha" className={styles.Password} placeholder='Repita sua senha' onChange={(e) => setPassword(e.target.value)}/>
+                <input 
+                  type="senha" 
+                  className={styles.Password} 
+                  placeholder='Repita sua Senha Aqui' 
+                  onChange={(e) => setPassword(e.target.value)}/>
                 <FaLock className={styles.Icon}/> 
             </div>
             <button>Registrar-se</button>
             <div className={styles.signupLink}>
               <p>
-                Já tem uma conta ? <Link to="/login">Login</Link>
+                Já tem uma conta ? <Link to="/login">Entrar</Link>
               </p>
             </div>
         </form>

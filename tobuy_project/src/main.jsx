@@ -6,7 +6,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 
 import Home from "./routes/Home/Home";
-import Contact from './routes/Contact';
+import Contact from './routes/Contact/Contact';
 import Login from "./routes/Login/Login";
 import Register from "./routes/Register/Register";
 import ForgetPassword from "./routes/Login/ForgetPassword";
