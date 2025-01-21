@@ -2,23 +2,44 @@ import {FaUser, FaLock} from "react-icons/fa";
 import styles from "./Register.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import toast from "";
 
 const Register = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(e) => {
     event.preventDefault();
-    console.log(username, password);
+    
+    const user = ref.current;
+
+    if (
+      !user.email ||
+      !user.pass ||
+      !user.reppass
+    ) {
+      return toast.warn("é necessário que todos os campos estejam preenchidos para realizar o cadastro.")
+    }
+    await axios
+      .post("http://localhost:8800", {
+        name_user: user.nome.value,
+        email_user: user.email.value,
+        pass_user: user.pass.value,
+        reg_userdate: new Date().toISOString().split('T')[0],
+      })
+      .then(({ data }) => toast.succedss(data))
+      .catch(({ data }) => toast.error(data));
   }
+  return to="/home"
 
   return (
     <div className={styles.Container}>
-        <form onSubmit={handleSubmit}>
+        <form ref={ref} onSubmit={handleSubmit}>
           <h1>Criar conta</h1>
             <div className={styles.inputField}>
                 <input 
+                  name="email"
                   type="email" 
                   className={styles.Email} 
                   placeholder='Digite seu Email Aqui' 
@@ -27,6 +48,7 @@ const Register = () => {
             </div>
             <div className={styles.inputField}>            
                 <input 
+                  name="pass"
                   type="senha" 
                   className={styles.Password} 
                   placeholder='Digite sua Senha Aqui' 
@@ -35,6 +57,7 @@ const Register = () => {
             </div>
             <div className={styles.inputField}>            
                 <input 
+                  name="reppass"
                   type="senha" 
                   className={styles.Password} 
                   placeholder='Repita sua Senha Aqui' 
