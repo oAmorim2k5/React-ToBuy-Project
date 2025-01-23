@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import {FaUser, FaLock} from "react-icons/fa";
-import { Formik, Form, Field, ErrorMessage } from "formik"
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import Axios from "axios";
 import * as yup from "yup";
 import styles from "./Register.module.css";
 
 const Register = () => {
 
-  const handleSubmit = (values) => console.log(values);
+  const handleClickRegister = (values) => {
+    Axios.post("http://localhost:8800/register", {
+      email: values.email,
+      password: values.password
+    }).then((response) => {
+      console.log(response)
+    })
+  };
 
   const validationRegister = yup.object().shape({
     email: yup
@@ -19,14 +27,12 @@ const Register = () => {
       .required("Este campo é obrigatório!"),
     confirmPassword: yup
       .string()
-      .min(8, "Campo senha deve conter pelo menos 8 caractéres")
-      .required("Este campo é obrigatório!")
-      .oneOf([yup.ref('password')], 'As senhas não coincidem!'),
+      .oneOf([yup.ref('password'), null], 'As senhas não coincidem!'),
   });
 
   return (
     <div className={styles.Container}>
-      <Formik initialValues = {{}} validationSchema={validationRegister} onSubmit={handleSubmit} >
+      <Formik initialValues = {{}} validationSchema={validationRegister} onSubmit={handleClickRegister} >
       <Form>
           <h1>Criar conta</h1>
             <div className={styles.inputField}>
@@ -58,7 +64,7 @@ const Register = () => {
             <div className={styles.inputField}>            
                 <Field
                   name="confirmPassword"
-                  type="confirmPassword" 
+                  type="password" 
                   className={styles.Password} 
                   placeholder='Repita sua Senha Aqui'/>
                 <FaLock className={styles.Icon}/> 
