@@ -41,6 +41,12 @@ const Navbar = () => {
             <Link className={styles.profileLink} to="/profile">
               Perfil
             </Link>
+            <Link className={styles.profileLink} to="/profile">
+              Listas
+            </Link>
+            <Link className={styles.profileLink} to="/profile">
+              Configurações
+            </Link>
             <button className={styles.logoutButton}>Sair</button>
           </div>
         </>

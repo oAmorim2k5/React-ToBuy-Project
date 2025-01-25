@@ -6,10 +6,9 @@ import Navbar from '../Components/Navbar/index.jsx';
 
 function App() {
     const { auth } = useContext(AuthContext);
-
     return (
         <>
-            <Navbar />
+            <Navbar/>
             {auth ? <PrivateRoutes /> : <PublicRoutes />}
         </>
     );

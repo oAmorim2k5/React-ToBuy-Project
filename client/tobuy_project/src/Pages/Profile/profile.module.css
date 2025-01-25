@@ -1,0 +1,102 @@
+.Container {
+    display: flex; 
+    justify-content: center;
+    width: 100vw; 
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+  
+.profileContainer {
+    width: 80%;
+    height: 90%;
+    border-radius: 5px;
+    margin-top: 10vh;
+    background-color: #303030;
+    box-shadow: 0px 30px 25px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topBar {
+    width: 98%;
+    display: flex; 
+    align-items: center; 
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.topBar .square {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 10%;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff;
+}
+  
+.topBar .squareImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.topBar h1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.infoContainer {
+    width: 75vw;
+    height: 100vh;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #404040;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .infoContainer h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #00bfff;
+  }
+  
+  .infoContainer p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .userStats p {
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+  
+  .userStats strong {
+    color: #00fa9a;
+  }
+  
+  .userMotivation {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); 
+    padding: 10px;
+    border-top: 1px solid #00bfff;
+    text-align: center;
+    width: 60%;
+    color: #f5f5f5;
+  }
+  .userMotivation p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #f5f5f5;
+  }
+  

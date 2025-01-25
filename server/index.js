@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql");
-const bcryp = require ("bcrypt")
+const bcrypt = require ("bcrypt")
+const bodyParser = require("body-parser")
 const saltRounds = 10;
 
 const db = mysql.createPool({
@@ -14,6 +15,7 @@ const db = mysql.createPool({
 
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json())
 
 app.post("/register", (req, res) => {
     const email = req.body.email;
@@ -25,7 +27,7 @@ app.post("/register", (req, res) => {
             return res.status(500).send(err);
         }
         if (result.length == 0) {
-            bcryp.hash(password, saltRounds, (err, hash) => {
+            bcrypt.hash(password, saltRounds, (err, hash) => {
                 db.query("INSERT INTO usuarios (email_user, pass_user) VALUES (?, ?)", [email, hash], (err, result) => {
                     if (err) {
                         console.error("Erro ao inserir dados no banco:", err);
@@ -59,7 +61,7 @@ app.post("/login", (req, res) => {
             res.send(err);
         };
         if (result.length > 0) {
-            bcryp.compare(password, result[0].pass_user, (err, result) => {
+            bcrypt.compare(password, result[0].pass_user, (err, result) => {
                 if(result){
                     res.send({msg: "Usuário logado com sucesso"});
                 } else {
@@ -81,16 +83,11 @@ app.post("/update-username", (req, res) => {
             console.error("Erro ao buscar id:", err);
             return res.status(500).send("Erro ao buscar usuário.");
         }
-
-        // Verifica se o usuário foi encontrado
         if (result.length === 0) {
             return res.status(404).send("Usuário não encontrado.");
         }
-
-        // Se encontrado, obtém o id_user
         const id = result[0].id_user;
 
-        // Atualiza o nome de usuário
         db.query("UPDATE tobuy.usuarios SET name_user = ? WHERE id_user = ?", [setUsername, id], (err, result) => {
             if (err) {
                 console.error("Erro ao atualizar username:", err);
@@ -100,6 +97,22 @@ app.post("/update-username", (req, res) => {
         });
     });
 });
+
+app.post("/user-data", (req, res) => {
+    const email = req.body.email;
+
+    db.query("SELECT * FROM tobuy.usuarios WHERE email_user = ?", [email], (err, result) => {
+        if (err) {
+            console.error("Erro no servidor ao buscar dados do usuário:", err);
+            return res.status(500).json({ error: "Erro no servidor." });
+        }
+        if (result.length === 0) {
+            return res.status(404).json({ error: "Usuário não encontrado." });
+        }
+        res.status(200).json(result[0]);
+    });
+});
+
 app.listen(8800, () => {
     console.log(`Rodando na porta: 8800`);
 });

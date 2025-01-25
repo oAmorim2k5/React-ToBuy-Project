@@ -3,14 +3,16 @@ import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import {FaUser, FaLock} from "react-icons/fa";
 import { AuthContext } from '../../Contexts/AuthContext';
+import { UserContext } from "../../Contexts/UserContext";
 import styles from "./login.module.css";
 import * as yup from "yup";
 import Axios from "axios";
 
 const Login = () => {
-  const { setAuth, auth } = useContext(AuthContext)
-  console.log('auth', auth);
+  const { setAuth, auth } = useContext(AuthContext);
+  const { setUser, user } = useContext(UserContext);
   const navigate = useNavigate();
+  console.log('auth', auth);
 
   const handleClickLogin = async (values) => {
     try {
@@ -22,6 +24,20 @@ const Login = () => {
         email: values.email,
         password: values.password,
       });
+      try {
+        const userDataResponse = await Axios.post("http://localhost:8800/user-data", {
+          email: values.email,
+        });
+        setUser(userDataResponse.data);
+  
+      } catch (error) {
+        if (error.response?.status === 404) {
+          console.error("Usuário não encontrado. Email não está cadastrado.");
+        } else {
+          console.error("Erro ao buscar dados do usuário:", error.response?.data || error.message);
+        }
+        return;
+      }
       setAuth(true);
       navigate("/home")
       console.log("Login bem-sucedido:", response.data);
