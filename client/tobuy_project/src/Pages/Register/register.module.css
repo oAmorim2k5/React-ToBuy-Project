@@ -5,150 +5,95 @@
     box-sizing: border-box;
 }
 
-body {
+.Container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #242424; 
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e0e0e0;
 }
 
-.Container {
-    width: 400px;
-    padding: 20px 30px;
-    background-color: #323232;
-    border-radius: 6px; 
-    box-shadow: 1px 5px 20px 10px rgba(0, 0, 0, 0.5);
+.FormContainer {
     display: flex;
     flex-direction: column;
-    align-items: left; 
-    gap: 20px; 
+    align-items: center;
+    height: auto;
+    width: 30%;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.Container h1 {
-    font-size: 3rem; 
-    color: #fff; 
-    text-shadow: -5px 4.5px 5px rgba(0, 0, 0, 0.5);
-    text-align: left; 
-    margin-top: 10px;
+h1 {
     margin-bottom: 20px;
-}
-
-.Container h1:hover {
-    cursor: default;
 }
 
 .inputField {
     position: relative;
     width: 100%;
-    height: 40px;
-    margin: 30px auto;
+    margin-bottom: 15px;
 }
 
 .inputField input {
     width: 100%;
-    height: 100%;
-    background-color: white;
-    outline: none;
-    border: 1px solid #323232;
-    border-radius: 10px;
+    padding: 12px 40px 12px 10px;
     font-size: 16px;
-    box-shadow: -5px 5px 2px 2px rgba(0, 0, 0, 0.3);
-    color: black;
-    padding: 20px 15px;
-}
-
-.inputField input:hover {
-    background-color: rgb(223, 223, 223);
-    cursor: text;
-}
-
-.inputField input:not(:placeholder-shown) {
-    background-color: #dadada;
-}
-
-.inputField .Icon {
-    position: absolute;
-    right: 25px;
-    top: 100%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #242424;
-}
-
-.Container button {
-    width: 150px;
-    height: 40px;
-    background-color: #242424;
-    border: 1px solid #262626;
-    border-radius: 8px;
-    padding: 0.6em 1.2em;
-    box-shadow: -5px 5px 2px 2px rgba(0, 0, 0, 0.35);
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: "Quicksand", sans-serif;
-    color: white;
-    margin-top: 10px;
-    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     outline: none;
 }
 
-.Container button:active {
-    width: 145px;
-    height: 37px;
+.inputField input:focus {
+    border-color: #007bff;
 }
 
-.Container button:hover {
-    background-color: #303030;
+.Icon {
+    position: absolute;
+    right: 15px;
+    top: 65%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.formError {
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    font-size: 11px;
+    color: red;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 .signinLink {
-    font-family:"Quicksand", sans-serif;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 30px;
-    color: #ffffff;
+    margin-left: 25px;
+    margin-top: 15px;
+    font-size: 14px;
 }
 
-.Container a{
-    color: #00bfff;
+.signinLink a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.Container a:hover{
-    color: #00bfffbb;
-}
-
-.username {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.inputFieldUser {
-    width: 100%;
-    position: relative;
-}
-
-.inputFieldUser input {
-    width: 100%;
-    height: 40px;
-    background-color: white;
-    outline: none;
-    border: 1px solid #323232;
-    border-radius: 10px;
-    font-size: 16px;
-    box-shadow: -5px 5px 2px 2px rgba(0, 0, 0, 0.3);
-    color: black;
-    padding: 10px 15px;
-}
-
-.inputFieldUser input:hover {
-    background-color: rgb(223, 223, 223);
-    cursor: text;
-}
-
-.inputFieldUser input:not(:placeholder-shown) {
-    background-color: #dadada;
+.signinLink a:hover {
+    text-decoration: underline;
 }
 
 .text {
@@ -163,40 +108,4 @@ body {
 .redAsterisk {
     color: red;
     margin-left: 5px; 
-}
-
-.formError {
-    position: absolute;
-    bottom: -50px; 
-    left: 0;
-    background-color: #ff4d4f;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px; 
-    padding: 5px 10px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-    z-index: 1; 
-    white-space: nowrap;
-    opacity: 80%;
-}
-
-.formErrorUser {
-    position: absolute;
-    bottom: 25px; 
-    left: 0;
-    background-color: #ff4d4f;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px; 
-    padding: 5px 10px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-    z-index: 1; 
-    white-space: nowrap;
-    opacity: 80%;
-}
-
-.EmailError {
-    border: 2px solid #ff4d4f;
 }

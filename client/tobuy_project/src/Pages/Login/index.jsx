@@ -59,58 +59,52 @@ const Login = () => {
 
   return (
     <div className={styles.Container}>
-      <Formik initialValues = {{}} validationSchema={validationLogin} onSubmit={handleClickLogin} >
-        <Form>
-          <h1>Entrar</h1>
-            <div className={styles.inputField}>
-              <div className={styles.text}>
-                <p className={styles.whiteText}>Email</p>
-                <p className={styles.redAsterisk}>*</p>
-              </div>
-              <Field 
-                name="email"
-                type="email" 
-                className={styles.Email} 
-                placeholder='Digite seu Email Aqui'/>
-              <FaUser className={styles.Icon}/>
-              
-              <ErrorMessage
-                component="span"
-                name="email"
-                className={styles.formError}/>
-            </div>
-            <div className={styles.inputField}>      
-              <div className={styles.text}>
-                <p className={styles.whiteText}>Senha</p>
-                <p className={styles.redAsterisk}>*</p>
-              </div>      
-              <Field 
-                name="password"
-                type="password" 
-                className={styles.Password} 
-                placeholder='Digite sua Senha Aqui'/>
-              <FaLock className={styles.Icon}/>
+      <div className={styles.RegContainer}>
+        <Formik initialValues = {{}} validationSchema={validationLogin} onSubmit={handleClickLogin} >
+          <Form>
+            <h1>Entrar</h1>
+              <div className={styles.inputField}>
+                <Field 
+                  name="email"
+                  type="email" 
+                  className={styles.Email} 
+                  placeholder='Email'/>
+                <FaUser className={styles.Icon}/>
                 
-              <ErrorMessage
-                component="span"
-                name="password"
-                className={styles.formError}/> 
-            </div>
-            <div className={styles.recallForget}>
-              <label>
-                <input type="checkbox"/>
-                Lembre de mim
-              </label>
-              <Link to="/forgetpassword">Esqueceu sua senha?</Link>
-            </div>
-            <button type="submit">Entrar</button>
-            <div className={styles.signupLink}>
-              <p>
-                Não tem uma conta ? <Link to="/register">Registrar-se</Link>
-              </p>
-            </div>
-        </Form>
-        </Formik>
+                <ErrorMessage
+                  component="span"
+                  name="email"
+                  className={styles.formError}/>
+              </div>
+              <div className={styles.inputField}>      
+                <Field 
+                  name="password"
+                  type="password" 
+                  className={styles.Password} 
+                  placeholder='Senha'/>
+                <FaLock className={styles.Icon}/>
+                  
+                <ErrorMessage
+                  component="span"
+                  name="password"
+                  className={styles.formError}/> 
+              </div>
+              <div className={styles.recallForget}>
+                <label>
+                  <input type="checkbox" />
+                  Lembre de mim
+                </label>
+                <Link to="/forgetpassword">Esqueceu sua senha?</Link>
+              </div>
+              <button type="submit">Entrar</button>
+              <div className={styles.signupLink}>
+                <p>
+                  Não tem uma conta ? <Link to="/register">Registre-se</Link>
+                </p>
+              </div>
+          </Form>
+          </Formik>
+      </div>
     </div>
   )
 }

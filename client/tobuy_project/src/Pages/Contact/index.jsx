@@ -14,16 +14,18 @@ const Contact = () => {
   const validationContact = yup.object().shape({
     username: yup
       .string()
-      .required("Favor preencher o campo"),
+      .min(1)
+      .required("*Favor preencher o campo"),
     email: yup
       .string()
-      .email("Não é um email")
-      .required("Favor preencher o campo"),
+      .min(1)
+      .required("*Favor preencher o campo")
+      .email("*Não é um email"),
     text: yup
       .string()
-      .required("Favor preencher o campo")
-      .min(20, "O texto deve ter no mínimo 20 caracteres")
-      .max(charLimit, `O texto deve ter no máximo ${charLimit} caracteres`),
+      .required("*Favor preencher o campo")
+      .min(20, "*O texto deve ter no mínimo 20 caracteres")
+      .max(charLimit, `*O texto deve ter no máximo ${charLimit} caracteres`),
   });
 
   const handleSubmit = async (values, resetForm) => {
@@ -49,82 +51,88 @@ const Contact = () => {
 
   return (
     <div className={styles.Container}>
-        <h1>Contato</h1>
-      <Formik
-        initialValues={{ username: "", email: "", text: "" }}
-        validationSchema={validationContact}
-        onSubmit={handleSubmit}
-      >
-        {({ values }) => (
-          <Form>
-            <div className={styles.inputGroup}>
-              <div className={styles.inputField}>
+      <div className={styles.LeftContainer}>
+        <h1>Tem alguma Sugestão ou Dúvida ?</h1>
+        <p>Fique a vontade para nos contatar</p>
+      </div>
+      <div className={styles.RightContainer}>
+        <Formik
+          initialValues={{ username: "", email: "", text: "" }}
+          validationSchema={validationContact}
+          onSubmit={handleSubmit}
+        >
+          {({ values }) => (
+            <Form>
+              <h1>✉️ - Nos envie uma mensagem</h1>
+              <div className={styles.inputGroup}>
                 <div className={styles.text}>
-                  <p className={styles.whiteText}>Nome de Identificação</p>
+                  <p>Nome de Identificação</p>
                   <p className={styles.redAsterisk}>*</p>
                 </div>
+                <div className={styles.inputField}>
+                  <Field
+                    name="username"
+                    type="text"
+                    className={styles.Field}
+                    placeholder="Digite seu Nome Aqui"
+                  />
+                  <FaUser className={styles.Icon} />
+                  <ErrorMessage
+                    component="span"
+                    name="username"
+                    className={styles.formError}
+                  />
+                </div>
+                <div className={styles.text}>
+                  <p>Email</p>
+                  <p className={styles.redAsterisk}>*</p>
+                </div>
+                <div className={styles.inputField}>
+                  <Field
+                    name="email"
+                    type="email"
+                    className={styles.Field}
+                    placeholder="Digite seu Email Aqui"
+                  />
+                  <FaUser className={styles.Icon} />
+                  <ErrorMessage
+                    component="span"
+                    name="email"
+                    className={styles.formError}
+                  />
+                </div>
+              </div>
+                <div className={styles.text}>
+                  <p>Mensagem</p>
+                  <p className={styles.redAsterisk}>*</p>
+                </div>
+              <div className={styles.desc}>
                 <Field
-                  name="username"
-                  type="text"
-                  className={styles.Field}
-                  placeholder="Digite seu Nome Aqui"
+                  as="textarea"
+                  name="text"
+                  rows={5}
+                  className={styles.descText}
+                  placeholder="Escreva aqui!"
+                  maxLength={charLimit}
                 />
-                <FaUser className={styles.Icon} />
                 <ErrorMessage
                   component="span"
-                  name="username"
+                  name="text"
                   className={styles.formError}
                 />
               </div>
-              <div className={styles.inputField}>
-              <div className={styles.text}>
-                <p className={styles.whiteText}>Email</p>
-                <p className={styles.redAsterisk}>*</p>
-              </div>
-                <Field
-                  name="email"
-                  type="email"
-                  className={styles.Field}
-                  placeholder="Digite seu Email Aqui"
-                />
-                <FaUser className={styles.Icon} />
-                <ErrorMessage
-                  component="span"
-                  name="email"
-                  className={styles.formError}
-                />
-              </div>
-            </div>
-            <div className={styles.desc}>
-              <div className={styles.text}>
-                <p className={styles.whiteText}>Mensagem</p>
-                <p className={styles.redAsterisk}>*</p>
-              </div>
-              <Field
-                as="textarea"
-                name="text"
-                rows={5}
-                className={styles.descText}
-                placeholder="Escreva aqui!"
-                maxLength={charLimit}
-              />
-              <ErrorMessage
-                component="span"
-                name="text"
-                className={styles.formError}
-              />
-            </div>
 
-            <div className={styles.charCount}>
-              {values.text.length}/{charLimit}
-            </div>
+              <div className={styles.charCount}>
+                {values.text.length}/{charLimit}
+              </div>
 
-            <button type="submit" className={styles.submitButton}>
-              Enviar
-            </button>
-          </Form>
-        )}
-      </Formik>
+              <button type="submit" className={styles.submitButton}>
+                Enviar
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };

@@ -95,103 +95,106 @@ const Register = () => {
 
   return (
     <div className={styles.Container}>
-    {isFormVisible ? (
-    <>
+  {isFormVisible ? (
+    <div className={styles.FormContainer}>
       <Formik 
-        initialValues = {{}} 
+        initialValues={{}} 
         validationSchema={validationRegister} 
-        onSubmit={handleClickRegister} >
-      <Form>
-          <h1>Criar conta</h1>
-            <div className={styles.inputField}>
-              <div className={styles.text}>
-                <p className={styles.whiteText}>Email</p>
-                <p className={styles.redAsterisk}>*</p>
-              </div>      
-                <Field 
-                  name="email"
-                  type="email" 
-                  className={styles.Email} 
-                  placeholder='Digite seu Email Aqui'
-                  />
-                <FaUser className={styles.Icon}/>
-
-                <ErrorMessage
-                  component="span"
-                  name="email"
-                  className={styles.formError}/>
-            </div>
-            <div className={styles.inputField}>
-              <div className={styles.text}>
-                <p className={styles.whiteText}>Senha</p>
-                <p className={styles.redAsterisk}>*</p>
-              </div>                  
-                <Field 
-                  name="password"
-                  type="password" 
-                  className={styles.Password} 
-                  placeholder='Digite sua Senha Aqui'/>
-                <FaLock className={styles.Icon}/>
-
-                <ErrorMessage
-                  component="span"
-                  name="password"
-                  className={styles.formError}/> 
-            </div>
-            <div className={styles.inputField}>  
-                <div className={styles.text}>
-                  <p className={styles.whiteText}>Senha novamente</p>
-                  <p className={styles.redAsterisk}>*</p>
-                </div>                
-                <Field
-                  name="confirmPassword"
-                  type="password" 
-                  className={styles.Password} 
-                  placeholder='Repita sua Senha Aqui'/>
-                <FaLock className={styles.Icon}/> 
-                
-                <ErrorMessage
-                  component="span"
-                  name="confirmPassword"
-                  className={styles.formError}/>
-            </div>
-            <button type="submit">Registrar-se</button>
-            <div className={styles.signinLink}>
-              <p>
-                Já tem uma conta ? <Link to="/login">Entrar</Link>
-              </p>
-            </div>
-        </Form>
-      </Formik>
-      </>
-    ) : (
-      <>
-      <Formik
-        initialValues={{}}
-        validationSchema={validationRegister}
-        onSubmit= {handleSubmitUsername}
+        onSubmit={handleClickRegister}
       >
         <Form>
-          <h1>Usuário</h1>
-          <div className={styles.inputFieldUser}>
-            <Field
-              type="text"
-              name="username"
-              className={styles.username}
-              placeholder="Nome de usuário"
+          <h1>Criar conta</h1>
+          <div className={styles.inputField}>
+            <div className={styles.text}>
+              <p>Email</p>
+              <p className={styles.redAsterisk}>*</p>
+            </div>
+            <Field 
+              name="email"
+              type="email"
+              className={styles.Email}
+              placeholder="Email"
             />
-
+            <FaUser className={styles.Icon} />
+            <ErrorMessage 
+              component="span"
+              name="email"
+              className={styles.formError}
+            />
+          </div>
+          <div className={styles.inputField}>
+            <div className={styles.text}>
+              <p>Senha</p>
+              <p className={styles.redAsterisk}>*</p>
+            </div>
+            <Field
+              name="password"
+              type="password"
+              className={styles.Password}
+              placeholder="Senha"
+            />
+            <FaLock className={styles.Icon} />
             <ErrorMessage
               component="span"
-              name="username"
-              className={styles.formErrorUser}/>
-            <button type="submit">Confirmar</button>
+              name="password"
+              className={styles.formError}
+            />
+          </div>
+          <div className={styles.inputField}>
+            <div className={styles.text}>
+              <p>Confirme a senha</p>
+              <p className={styles.redAsterisk}>*</p>
+            </div>
+            <Field
+              name="confirmPassword"
+              type="password"
+              className={styles.Password}
+              placeholder="Repita sua senha"
+            />
+            <FaLock className={styles.Icon} />
+            <ErrorMessage
+              component="span"
+              name="confirmPassword"
+              className={styles.formError}
+            />
+          </div>
+          <button type="submit">Registrar-se</button>
+          <div className={styles.signinLink}>
+            <p>
+              Já tem uma conta? <Link to="/login">Entrar</Link>
+            </p>
           </div>
         </Form>
       </Formik>
-    </>
-    )}
     </div>
+  ) : (
+    <div className={styles.FormContainer}>
+      <Formik
+        initialValues={{}}
+        validationSchema={validationRegister}
+        onSubmit={handleSubmitUsername}
+      >
+        <Form>
+          <h1>Usuário</h1>
+          <div className={styles.inputField}>
+            <Field
+              name="username"
+              type="text"
+              className={styles.username}
+              placeholder="Nome de usuário"
+            />
+            <ErrorMessage
+              component="span"
+              name="username"
+              className={styles.formError}
+            />
+          </div>
+          <button type="submit">Confirmar</button>
+        </Form>
+      </Formik>
+    </div>
+  )}
+</div>
 )};
 
 export default Register
