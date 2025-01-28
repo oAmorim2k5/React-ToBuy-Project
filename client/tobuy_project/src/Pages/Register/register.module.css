@@ -38,7 +38,7 @@ body {
     cursor: default;
 }
 
-.Container .inputField {
+.inputField {
     position: relative;
     width: 100%;
     height: 40px;
@@ -70,7 +70,7 @@ body {
 .inputField .Icon {
     position: absolute;
     right: 25px;
-    top: 53%;
+    top: 100%;
     transform: translateY(-50%);
     font-size: 18px;
     color: #242424;
@@ -112,11 +112,11 @@ body {
 }
 
 .Container a{
-    color: #fca278;
+    color: #00bfff;
 }
 
 .Container a:hover{
-    color: #f06b2e;
+    color: #00bfffbb;
 }
 
 .username {
@@ -149,4 +149,54 @@ body {
 
 .inputFieldUser input:not(:placeholder-shown) {
     background-color: #dadada;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+}
+  
+.whiteText {
+    color: white; 
+}
+  
+.redAsterisk {
+    color: red;
+    margin-left: 5px; 
+}
+
+.formError {
+    position: absolute;
+    bottom: -50px; 
+    left: 0;
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
+    white-space: nowrap;
+    opacity: 80%;
+}
+
+.formErrorUser {
+    position: absolute;
+    bottom: 25px; 
+    left: 0;
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px; 
+    padding: 5px 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
+    white-space: nowrap;
+    opacity: 80%;
+}
+
+.EmailError {
+    border: 2px solid #ff4d4f;
 }

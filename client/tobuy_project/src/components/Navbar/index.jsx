@@ -18,10 +18,10 @@ const Navbar = () => {
       {auth ? (
         <>
           <div className={styles.links}>
-            <Link className={styles.link} to="/home">
+            <Link className={styles.link} onClick={() => toggleMenu(setIsMenuOpen(true))} to="/home">
               Home
             </Link>
-            <Link className={styles.link} to="/contact">
+            <Link className={styles.link} onClick={() => toggleMenu(setIsMenuOpen(true))} to="/contact">
               Contato
             </Link>
             <button
@@ -30,7 +30,7 @@ const Navbar = () => {
               aria-expanded={isMenuOpen}
               aria-label="Abrir menu do usuário"
             >
-              <LuCircleUserRound className={styles.Icon}/>
+              <LuCircleUserRound className={styles.barIcon}/>
             </button>
           </div>
           <div
@@ -38,16 +38,16 @@ const Navbar = () => {
               isMenuOpen ? styles.menuVisible : ""
             }`}
           >
-            <Link className={styles.profileLink} to="/profile">
+            <Link className={styles.profileLink} onClick={() => toggleMenu(setIsMenuOpen(true))} to="/profile">
               Perfil
             </Link>
-            <Link className={styles.profileLink} to="/profile">
+            <Link className={styles.profileLink} onClick={() => toggleMenu(setIsMenuOpen(true))} to="/profile">
               Listas
             </Link>
-            <Link className={styles.profileLink} to="/profile">
+            <Link className={styles.profileLink} onClick={() => toggleMenu(setIsMenuOpen(true))} to="/profile">
               Configurações
             </Link>
-            <button className={styles.logoutButton}>Sair</button>
+            <button className={styles.logoutButton} onClick={() => toggleMenu(setIsMenuOpen(true))}>Sair</button>
           </div>
         </>
       ) : (

@@ -1,102 +1,147 @@
-.Container {
-    display: flex; 
-    justify-content: center;
-    width: 100vw; 
-    height: 100vh; 
-    margin: 0;
-    padding: 0;
-}
-  
-.profileContainer {
-    width: 80%;
-    height: 90%;
-    border-radius: 5px;
-    margin-top: 10vh;
-    background-color: #303030;
-    box-shadow: 0px 30px 25px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  margin-top: 50px;
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+  color: #f8f8f8;
+  font-family: Arial, sans-serif;
 }
 
-.topBar {
-    width: 98%;
-    display: flex; 
-    align-items: center; 
-    padding: 20px;
-    border-radius: 5px;
+.header {
+  display: flex;
+  justify-content: left;
+  padding: 20px;
+  background: #202020;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.topBar .square {
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-    border-radius: 10%;
-    overflow: hidden; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ffffff;
-}
-  
-.topBar .squareImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.topBar h1 {
-    color: #ffffff;
-    margin: 0;
-    font-size: 2rem;
+.profilePictureContainer {
+  width: 120px;
+  height: 120px;
+  border-radius: 5%;
+  overflow: hidden;
+  border: 3px solid #00bfff;
+  box-shadow: 0 0 10px 1px #ffffff;
 }
 
-.infoContainer {
-    width: 75vw;
-    height: 100vh;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    background-color: #404040;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  .infoContainer h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #00bfff;
-  }
-  
-  .infoContainer p {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
-  .userStats p {
-    margin: 8px 0;
-    line-height: 1.5;
-  }
-  
-  .userStats strong {
-    color: #00fa9a;
-  }
-  
-  .userMotivation {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%); 
-    padding: 10px;
-    border-top: 1px solid #00bfff;
-    text-align: center;
-    width: 60%;
-    color: #f5f5f5;
-  }
-  .userMotivation p {
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #f5f5f5;
-  }
-  
+.profilePicture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.userInfo h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.userInfo p {
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+
+.editProfileButton {
+  background: #00bfff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  width: 130px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.editProfileButton:hover {
+  background: #008ecc;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.statsSection,
+.listsSection {
+  background: #303030;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.statsSection h2,
+.listsSection h2 {
+  font-size: 1.5rem;
+  color: #00bfff;
+  margin-bottom: 15px;
+}
+
+.statsSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.statsSection li {
+  font-size: 1rem;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.statsSection li strong {
+  color: #00fa9a;
+}
+
+.listsSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #404040;
+  border-radius: 5px;
+  color: #f8f8f8;
+  font-size: 1rem;
+}
+
+.listItem span {
+  font-weight: bold;
+  color: #00bfff;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: #202020;
+  border-top: 1px solid #00bfff;
+  font-style: "Quicksand", sans-serif;
+}
+
+.footer p {
+  font-size: 1.1rem;
+  color: #f5f5f5;
+  margin: 0;
+}

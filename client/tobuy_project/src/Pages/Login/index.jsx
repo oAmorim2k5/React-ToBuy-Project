@@ -1,31 +1,33 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import {FaUser, FaLock} from "react-icons/fa";
 import { AuthContext } from '../../Contexts/AuthContext';
 import { UserContext } from "../../Contexts/UserContext";
-import styles from "./login.module.css";
 import * as yup from "yup";
 import Axios from "axios";
+import styles from "./login.module.css";
 
 const Login = () => {
   const { setAuth, auth } = useContext(AuthContext);
   const { setUser, user } = useContext(UserContext);
   const navigate = useNavigate();
-  console.log('auth', auth);
 
   const handleClickLogin = async (values) => {
     try {
       if (!values.email || !values.password) {
-        console.error("Por favor, preencha todos os campos.");
+        setErrors({
+          email: values.email ? "" : "O campo Email é obrigatório.",
+          password: values.password ? "" : "O campo Senha é obrigatório.",
+        });
         return;
       }
-      const response = await Axios.post("http://localhost:8800/login", {
+      const response = await Axios.post("http://localhost:8800/auth/login", {
         email: values.email,
         password: values.password,
       });
       try {
-        const userDataResponse = await Axios.post("http://localhost:8800/user-data", {
+        const userDataResponse = await Axios.post("http://localhost:8800/user/user-data", {
           email: values.email,
         });
         setUser(userDataResponse.data);
@@ -49,7 +51,6 @@ const Login = () => {
   const validationLogin = yup.object().shape({
     email: yup
     .string()
-    .email("Não é um email")
     .required("Favor preencher o campo"),
     password: yup
     .string()
@@ -62,6 +63,10 @@ const Login = () => {
         <Form>
           <h1>Entrar</h1>
             <div className={styles.inputField}>
+              <div className={styles.text}>
+                <p className={styles.whiteText}>Email</p>
+                <p className={styles.redAsterisk}>*</p>
+              </div>
               <Field 
                 name="email"
                 type="email" 
@@ -72,9 +77,13 @@ const Login = () => {
               <ErrorMessage
                 component="span"
                 name="email"
-                className="form-error"/>
+                className={styles.formError}/>
             </div>
-            <div className={styles.inputField}>            
+            <div className={styles.inputField}>      
+              <div className={styles.text}>
+                <p className={styles.whiteText}>Senha</p>
+                <p className={styles.redAsterisk}>*</p>
+              </div>      
               <Field 
                 name="password"
                 type="password" 
@@ -85,7 +94,7 @@ const Login = () => {
               <ErrorMessage
                 component="span"
                 name="password"
-                className="form-error"/> 
+                className={styles.formError}/> 
             </div>
             <div className={styles.recallForget}>
               <label>

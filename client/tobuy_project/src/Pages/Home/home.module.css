@@ -44,7 +44,7 @@
 .button {
     width: 110px;
     height: 40px;
-    background-color: #ff4a2a;
+    background-color: #00bfff;
     border: 1px solid #262626;
     border-radius: 8px;
     padding: 0.6em 1.2em;
@@ -60,7 +60,7 @@
 }
 
 .button:hover {
-    background-color: #ff5537;
+    background-color: #0097c9;
 }
 
 .button:active {
